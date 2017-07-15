@@ -4,7 +4,6 @@ namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
 use EmailValidation\EmailDataProvider;
-use EmailValidation\Validations\DisposableEmailValidator;
 use EmailValidation\Validations\FreeEmailServiceValidator;
 use PHPUnit\Framework\TestCase;
 
@@ -12,6 +11,8 @@ class FreeEmailProviderValidatorTest extends TestCase
 {
     /**
      * @dataProvider freeEmailsDataProvider
+     * @param string $emailAddress
+     * @param bool $expectedResult
      */
     public function testIsEmailAProvider($emailAddress, $expectedResult)
     {
@@ -23,7 +24,10 @@ class FreeEmailProviderValidatorTest extends TestCase
         $this->assertSame($expectedResult, $freeEmailServiceValidator->getResultResponse());
     }
 
-    public function freeEmailsDataProvider()
+    /**
+     * @return array
+     */
+    public function freeEmailsDataProvider(): array
     {
         return [
             ['dave@gmail.com', true],
@@ -34,5 +38,4 @@ class FreeEmailProviderValidatorTest extends TestCase
             ['dave@reddit.com', false],
         ];
     }
-
 }

@@ -8,7 +8,6 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
-
 class MxRecordsValidatorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
@@ -29,10 +28,5 @@ class MxRecordsValidatorTest extends TestCase
     {
         $this->mxValidator->shouldReceive('checkDns')->with('dave@gmail.com', 'MX');
         $this->mxValidator->getResultResponse();
-    }
-
-    public function testGetValidatorNameIsString()
-    {
-        $this->assertTrue(is_string($this->mxValidator->getValidatorName()));
     }
 }

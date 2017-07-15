@@ -22,7 +22,10 @@ class ValidFormatValidatorTest extends TestCase
         $this->assertSame($expectedResult, $disposableEmailValidation->getResultResponse());
     }
 
-    public function emailsDataProvider()
+    /**
+     * @return array
+     */
+    public function emailsDataProvider(): array
     {
         return [
             ['dave@gmail.com', true],

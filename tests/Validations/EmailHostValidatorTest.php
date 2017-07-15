@@ -4,11 +4,9 @@ namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
 use EmailValidation\Validations\EmailHostValidator;
-use EmailValidation\Validations\MxRecordsValidator;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
-
 
 class EmailHostValidatorTest extends TestCase
 {
