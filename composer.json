@@ -1,6 +1,6 @@
 {
-    "name": "daveearley/micro-email-validation-api",
-    "description": "Micro API which validates emails",
+    "name": "daveearley/email-validation-tool",
+    "description": "An easy to use, comprehensive & extensible email validation library",
     "type": "project",
     "require-dev": {
         "mockery/mockery": "^0.9.9",
