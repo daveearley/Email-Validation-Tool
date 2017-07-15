@@ -6,4 +6,5 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $validator = EmailValidatorFactory::create($_REQUEST['email']);
 
-var_dump($validator->getValidationResults()->asJson());
+header('Content-Type: application/json');
+echo $validator->getValidationResults()->asJson();
