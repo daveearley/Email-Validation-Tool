@@ -7,7 +7,7 @@ class EmailDataProvider
     const EMAIL_PROVIDERS = __DIR__ . '/data/email-providers.php';
     const TOP_LEVEL_DOMAINS = __DIR__ . '/data/top-level-domains.php';
     const DISPOSABLE_EMAIL_PROVIDERS = __DIR__ . '/data/disposable-email-providers.php';
-    const ROLE_BASED_EMAIl_PREFIXES = __DIR__ . '/data/role-based-email-prefixes.php';
+    const ROLE_BASED_EMAIL_PREFIXES = __DIR__ . '/data/role-based-email-prefixes.php';
 
     /**
      * @return array
@@ -38,6 +38,6 @@ class EmailDataProvider
      */
     public function getRoleEmailPrefixes(): array
     {
-        return include self::ROLE_BASED_EMAIl_PREFIXES;
+        return include self::ROLE_BASED_EMAIL_PREFIXES;
     }
 }
