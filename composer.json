@@ -10,7 +10,7 @@
     "autoload": {
         "psr-4": {
             "EmailValidation\\": "src/",
-            "EmailValidation\\Tests\\": "src/tests",
+            "EmailValidation\\Tests\\": "src/tests"
         }
     },
     "authors": [
