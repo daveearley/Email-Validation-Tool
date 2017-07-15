@@ -1,0 +1,44 @@
+<?php
+
+namespace EmailValidation;
+
+use EmailValidation\Validations\EmailHostValidator;
+use EmailValidation\Validations\RoleBasedEmailValidator;
+use EmailValidation\Validations\DisposableEmailValidator;
+use EmailValidation\Validations\FreeEmailServiceValidator;
+use EmailValidation\Validations\MisspelledEmailValidator;
+use EmailValidation\Validations\MxRecordsValidator;
+use EmailValidation\Validations\Validator;
+use EmailValidation\Validations\ValidFormatValidator;
+
+class EmailValidatorFactory
+{
+    /** @var Validator[] */
+    private static $defaultValidators = [
+        ValidFormatValidator::class,
+        MxRecordsValidator::class,
+        MisspelledEmailValidator::class,
+        FreeEmailServiceValidator::class,
+        DisposableEmailValidator::class,
+        RoleBasedEmailValidator::class,
+        EmailHostValidator::class
+    ];
+
+    /**
+     * @param string $emailAddress
+     * @return EmailValidator
+     */
+    public static function create(string $emailAddress): EmailValidator
+    {
+        $emailAddress = new EmailAddress($emailAddress);
+        $emailDataProvider = new EmailDataProvider();
+        $emailValidationResults = new ValidationResults();
+        $emailValidator = new EmailValidator($emailAddress, $emailValidationResults);
+
+        foreach (self::$defaultValidators as $validator) {
+            $emailValidator->registerValidator(new $validator($emailAddress, $emailDataProvider));
+        }
+
+        return $emailValidator;
+    }
+}

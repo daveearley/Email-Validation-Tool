@@ -1,0 +1,22 @@
+{
+    "name": "daveearley/micro-email-validation-api",
+    "description": "Micro API which validates emails",
+    "type": "project",
+    "require-dev": {
+        "mockery/mockery": "^0.9.9",
+        "phpunit/phpunit": "^6.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "EmailValidation\\": "src/",
+            "EmailValidation\\Tests\\": "src/tests",
+        }
+    },
+    "authors": [
+        {
+            "name": "Dave Earley",
+            "email": "dave@earley.email"
+        }
+    ]
+}
