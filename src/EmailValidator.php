@@ -50,7 +50,7 @@ class EmailValidator
     /**
      * @return void
      */
-    public function runValidation(): void
+    public function runValidation()
     {
         foreach ($this->registeredValidators as $validator) {
             $this->validationResults->addResult($validator->getValidatorName(), $validator->getResultResponse());
