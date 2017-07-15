@@ -19,7 +19,7 @@ class EmailHostValidator extends Validator
             return ($this->getHostByName($hostName) !== $hostName);
         }
 
-        return false;
+        return false; // @codeCoverageIgnore
     }
 
     /**
