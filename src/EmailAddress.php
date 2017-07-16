@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation;
 
 class EmailAddress
@@ -59,7 +61,7 @@ class EmailAddress
      */
     public function isValidEmailAddressFormat(): bool
     {
-        return filter_var($this->emailAddress, FILTER_VALIDATE_EMAIL);
+        return filter_var($this->emailAddress, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**

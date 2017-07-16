@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Validations;
 
 class RoleBasedEmailValidator extends Validator

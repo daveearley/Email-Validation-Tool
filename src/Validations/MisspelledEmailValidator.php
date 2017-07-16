@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Validations;
 
 /**
@@ -96,7 +98,7 @@ class MisspelledEmailValidator extends Validator
             return $stringToCheck;
         }
 
-        $closestMatch = false;
+        $closestMatch = '';
         foreach ($wordsToCheck as $testedWord) {
             $distance = levenshtein($stringToCheck, $testedWord);
             if ($distance <= $minimumDistance) {
