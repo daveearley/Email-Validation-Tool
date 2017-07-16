@@ -6,7 +6,9 @@
 
 **An extensible email validation library for PHP 7+**
 
-The aim of this library is to offer a more detailed email validation report than simply checking if an email is the valid format, and also to make it possible to easily add custom validations. Currently this tool checks the following:
+The aim of this library is to offer a more detailed email validation report than simply checking if an email is the valid format, and also to make it possible to easily add custom validations.
+
+Currently this tool checks the following:
 
 
 | Validation  | Description |
@@ -17,7 +19,7 @@ The aim of this library is to offer a more detailed email validation report than
 | Role/Business Email^  | Checks if the email if a role/business based email (e.g info@reddit.com).  |
 | Disposable email provider^  | Checks if the email is a disposable email (e.g person@10minutemail.com).  |
 | Free email provider^  | Checks if the email is a free email (e.g person@yahoo.com).  |
-| Misspelled Email ^ | Checks the email for possible typs and returns a suggested corrected (e.g hi@gmaol.con -> hi@gmail.com).  |
+| Misspelled Email ^ | Checks the email for possible typos and returns a suggested correction (e.g hi@gmaol.con -> hi@gmail.com).  |
 
 ^ **Data used for these checks can be found [here](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data)**
 
