@@ -13,9 +13,3 @@ script:
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
-
-matrix:
-  include:
-    - php: "hhvm"
-      dist: trusty
-      sudo: true
