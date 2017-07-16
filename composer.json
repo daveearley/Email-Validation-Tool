@@ -1,6 +1,6 @@
 {
-    "name": "daveearley/email-validation-tool",
-    "description": "An easy to use, comprehensive & extensible email validation library",
+    "name": "daveearley/daves-email-validation-tool",
+    "description": "An easy to use, accurate-ish & extensible email validation library",
     "type": "project",
     "require-dev": {
         "mockery/mockery": "^0.9.9",
