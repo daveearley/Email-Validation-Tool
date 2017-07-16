@@ -2,7 +2,7 @@
 <img src='http://i.imgur.com/FEHjqbu.png' alt='PHP Email Validation Tool' />
 </p>
 
-[![codecov](https://codecov.io/gh/daveearley/EmailValidationTool/branch/master/graph/badge.svg)](https://codecov.io/gh/daveearley/EmailValidationTool) [![Build Status](https://travis-ci.org/daveearley/EmailValidationTool.svg?branch=master)](https://travis-ci.org/daveearley/EmailValidationTool) [![Code Climate](https://codeclimate.com/github/daveearley/EmailValidationTool/badges/gpa.svg)](https://codeclimate.com/github/daveearley/EmailValidationTool)
+[![codecov](https://codecov.io/gh/daveearley/Email-Validation-Tool/branch/master/graph/badge.svg)](https://codecov.io/gh/daveearley/Email-Validation-Tool/) [![Build Status](https://travis-ci.org/daveearley/Email-Validation-Tool.svg?branch=master)](https://travis-ci.org/daveearley/Email-Validation-Tool) [![Code Climate](https://codeclimate.com/github/daveearley/Email-Validation-Tool/badges/gpa.svg)](https://codeclimate.com/github/daveearley/Email-Validation-Tool/)
 
 **An extensible email validation library for PHP 7+**
 
