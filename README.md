@@ -1,5 +1,5 @@
 <p align="center">
-<img style='width:220px;' src='http://i.imgur.com/gZ5RBFV.png' alt='PHP Email Validation Tool' />
+<img src='http://i.imgur.com/FEHjqbu.png' alt='PHP Email Validation Tool' />
 </p>
 
 [![codecov](https://codecov.io/gh/daveearley/EmailValidationTool/branch/master/graph/badge.svg)](https://codecov.io/gh/daveearley/EmailValidationTool) [![Build Status](https://travis-ci.org/daveearley/EmailValidationTool.svg?branch=master)](https://travis-ci.org/daveearley/EmailValidationTool) [![Code Climate](https://codeclimate.com/github/daveearley/EmailValidationTool/badges/gpa.svg)](https://codeclimate.com/github/daveearley/EmailValidationTool)
