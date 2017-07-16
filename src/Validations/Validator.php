@@ -19,7 +19,7 @@ abstract class Validator
      * @param EmailAddress $emailAddress
      * @param EmailDataProvider $emailDataProvider
      */
-    public function __construct(EmailAddress $emailAddress, EmailDataProvider $emailDataProvider = null)
+    public function __construct(EmailAddress $emailAddress = null, EmailDataProvider $emailDataProvider = null)
     {
         $this->emailAddress = $emailAddress;
         $this->emailDataProvider = $emailDataProvider;
@@ -49,5 +49,25 @@ abstract class Validator
     public function getEmailDataProvider(): EmailDataProvider
     {
         return $this->emailDataProvider;
+    }
+
+    /**
+     * @param EmailAddress $emailAddress
+     * @return $this
+     */
+    public function setEmailAddress(EmailAddress $emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+        return $this;
+    }
+
+    /**
+     * @param EmailDataProvider|null $emailDataProvider
+     * @return $this
+     */
+    public function setEmailDataProvider($emailDataProvider)
+    {
+        $this->emailDataProvider = $emailDataProvider;
+        return $this;
     }
 }

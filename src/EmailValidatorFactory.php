@@ -33,10 +33,10 @@ class EmailValidatorFactory
         $emailAddress = new EmailAddress($emailAddress);
         $emailDataProvider = new EmailDataProvider();
         $emailValidationResults = new ValidationResults();
-        $emailValidator = new EmailValidator($emailAddress, $emailValidationResults);
+        $emailValidator = new EmailValidator($emailAddress, $emailValidationResults, $emailDataProvider);
 
         foreach (self::$defaultValidators as $validator) {
-            $emailValidator->registerValidator(new $validator($emailAddress, $emailDataProvider));
+            $emailValidator->registerValidator(new $validator);
         }
 
         return $emailValidator;

@@ -3,6 +3,7 @@
 namespace EmailValidation\Tests;
 
 use EmailValidation\EmailAddress;
+use EmailValidation\EmailDataProvider;
 use EmailValidation\EmailValidator;
 use EmailValidation\ValidationResults;
 use EmailValidation\Validations\MisspelledEmailValidator;
@@ -25,11 +26,19 @@ class EmailValidationTest extends TestCase
     /** @var EmailValidator */
     private $emailValidation;
 
+    /** @var EmailDataProvider|MockInterface */
+    private $emailDataProviderMock;
+
     protected function setUp()
     {
         $this->emailMock = Mockery::mock(EmailAddress::class);
         $this->validationResultsMock = Mockery::mock(ValidationResults::class);
-        $this->emailValidation = new EmailValidator($this->emailMock, $this->validationResultsMock);
+        $this->emailDataProviderMock = Mockery::mock(EmailDataProvider::class);
+        $this->emailValidation = new EmailValidator(
+            $this->emailMock,
+            $this->validationResultsMock,
+            $this->emailDataProviderMock
+        );
     }
 
     public function testRunValidation()
@@ -43,6 +52,8 @@ class EmailValidationTest extends TestCase
 
         $mockValidation->shouldReceive('getValidatorName')->andReturn('hello');
         $mockValidation->shouldReceive('getResultResponse')->andReturn('hello');
+        $mockValidation->shouldReceive('setEmailAddress')->andReturnSelf();
+        $mockValidation->shouldReceive('setEmailDataProvider')->andReturnSelf();
 
         $this->emailValidation->registerValidators([$mockValidation]);
         $this->emailValidation->runValidation();
@@ -63,6 +74,8 @@ class EmailValidationTest extends TestCase
 
         $mockValidation->shouldReceive('getValidatorName')->andReturn('valid_format');
         $mockValidation->shouldReceive('getResultResponse')->andReturn(true);
+        $mockValidation->shouldReceive('setEmailAddress')->andReturnSelf();
+        $mockValidation->shouldReceive('setEmailDataProvider')->andReturnSelf();
 
         $this->emailValidation->registerValidator($mockValidation);
 

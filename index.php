@@ -1,10 +1,12 @@
 <?php
 
-use EmailValidation\EmailValidatorFactory;
+// Include the compose autoload file
+use EmailValidation\Validations\GmailValidator;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$validator = EmailValidatorFactory::create($_REQUEST['email'] ?: '');
+$validator = EmailValidation\EmailValidatorFactory::create('dave@gmoil.con');
 
-header('Content-Type: application/json');
+
+
 echo $validator->getValidationResults()->asJson();

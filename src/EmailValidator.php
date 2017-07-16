@@ -15,15 +15,25 @@ class EmailValidator
     /** @var ValidationResults */
     private $validationResults;
 
+    /** @var EmailDataProvider */
+    private $emailDataProvider;
+
     /**
      * @param EmailAddress $emailAddress
      * @param ValidationResults $validationResults
+     * @param EmailDataProvider $emailDataProvider
      */
-    public function __construct(EmailAddress $emailAddress, ValidationResults $validationResults)
+    public function __construct(
+        EmailAddress $emailAddress,
+        ValidationResults $validationResults,
+        EmailDataProvider $emailDataProvider
+    )
     {
         $this->emailAddress = $emailAddress;
         $this->validationResults = $validationResults;
+        $this->emailDataProvider = $emailDataProvider;
     }
+
 
     /**
      * @param Validator $validator
@@ -31,7 +41,9 @@ class EmailValidator
      */
     public function registerValidator(Validator $validator): EmailValidator
     {
-        $this->registeredValidators[] = $validator;
+        $this->registeredValidators[] = $validator
+            ->setEmailAddress($this->emailAddress)
+            ->setEmailDataProvider($this->emailDataProvider);
         return $this;
     }
 
@@ -66,5 +78,13 @@ class EmailValidator
             $this->runValidation();
         }
         return $this->validationResults;
+    }
+
+    /**
+     * @return EmailAddress
+     */
+    public function getEmailAddress(): EmailAddress
+    {
+        return $this->emailAddress;
     }
 }
