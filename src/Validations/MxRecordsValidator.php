@@ -17,7 +17,7 @@ class MxRecordsValidator extends Validator
     public function getResultResponse(): bool
     {
         if ($this->getEmailAddress()->isValidEmailAddressFormat()) {
-            return $this->checkDns($this->getEmailAddress()->getHostPart(),'MX');
+            return $this->checkDns($this->getEmailAddress()->getHostPart(), 'MX');
         }
 
         return false; // @codeCoverageIgnore

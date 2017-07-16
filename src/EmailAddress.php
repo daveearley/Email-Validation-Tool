@@ -69,7 +69,7 @@ class EmailAddress
      */
     public function asString(): string
     {
-        return (string) $this->emailAddress;
+        return (string)$this->emailAddress;
     }
 
     /**
