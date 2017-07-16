@@ -44,8 +44,8 @@ class EmailValidator
     public function registerValidator(Validator $validator): EmailValidator
     {
         $this->registeredValidators[] = $validator
-            ->setEmailAddress($this->emailAddress)
-            ->setEmailDataProvider($this->emailDataProvider);
+            ->setEmailAddress($this->getEmailAddress())
+            ->setEmailDataProvider($this->getEmailDataProvider());
         return $this;
     }
 
@@ -85,8 +85,16 @@ class EmailValidator
     /**
      * @return EmailAddress
      */
-    public function getEmailAddress(): EmailAddress
+    private function getEmailAddress(): EmailAddress
     {
         return $this->emailAddress;
+    }
+
+    /**
+     * @return EmailDataProvider
+     */
+    private function getEmailDataProvider(): EmailDataProvider
+    {
+        return $this->emailDataProvider;
     }
 }
