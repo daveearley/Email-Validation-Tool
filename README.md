@@ -19,7 +19,7 @@ The aim of this library is to offer a more detailed email validation report than
 | Free email provider^  | Checks if the email is a free email (e.g person@yahoo.com).  |
 | Misspelled Email ^ | Checks the email for possible typs and returns a suggested corrected (e.g hi@gmaol.con -> hi@gmail.com).  |
 
-^ **Date used for these checks can be found [here](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data)**
+^ **Data used for these checks can be found [here](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data)**
 
 # Installation
 
@@ -31,7 +31,7 @@ composer require daveearley/daves-email-validation-tool
 ## Quick Start
 
 ```php
-// Include the compose autoload file
+// Include the composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
 $validator = EmailValidation\EmailValidatorFactory::create('dave@gmoil.con');
