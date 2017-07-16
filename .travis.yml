@@ -3,7 +3,6 @@ language: php
 php:
   - 7.0
   - 7.1
-  - hhvm
 
 before_script:
     - travis_retry composer self-update
@@ -14,3 +13,9 @@ script:
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
+
+matrix:
+  include:
+    - php: "hhvm"
+      dist: trusty
+      sudo: true
