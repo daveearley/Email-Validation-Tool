@@ -31,7 +31,7 @@ composer require daveearley/daves-email-validation-tool
 ## Quick Start
 
 ```php
-// Include the compose autoload file
+// Include the composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
 $validator = EmailValidation\EmailValidatorFactory::create('dave@gmoil.con');
