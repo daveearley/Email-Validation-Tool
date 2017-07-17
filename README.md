@@ -87,7 +87,7 @@ class GmailValidator extends Validator
 }
 ```
 
-// file-where-you-doing-your-validation.php
+// file-where-you-are-doing-your-validation.php
 ```php
 <?php
 
@@ -118,7 +118,7 @@ The expected output will be:
 ```
 
 ## Running in Docker
-You can eaily validate over HTTP using docker. To get docker working run 
+You can easily validate over HTTP using docker. To get docker working run 
 ```bash
 docker-compose up -d 
 ```
