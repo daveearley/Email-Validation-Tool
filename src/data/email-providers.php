@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @see https://gist.github.com/tbrianjones/5992856
+ */
+
 return [
     '1033edge.com',
     '11mail.com',
