@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation;
 
-class EmailDataProvider
+class EmailDataProvider implements EmailDataProviderInterface
 {
     const EMAIL_PROVIDERS = __DIR__ . '/data/email-providers.php';
     const TOP_LEVEL_DOMAINS = __DIR__ . '/data/top-level-domains.php';
@@ -12,7 +12,7 @@ class EmailDataProvider
     const ROLE_BASED_EMAIL_PREFIXES = __DIR__ . '/data/role-based-email-prefixes.php';
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getEmailProviders(): array
     {
@@ -20,7 +20,7 @@ class EmailDataProvider
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getTopLevelDomains(): array
     {
@@ -28,7 +28,7 @@ class EmailDataProvider
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getDisposableEmailProviders(): array
     {
@@ -36,7 +36,7 @@ class EmailDataProvider
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getRoleEmailPrefixes(): array
     {
