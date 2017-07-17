@@ -9,6 +9,9 @@
     "email verification",
     "disposable email check"
   ],
+  "require": {
+    "php": "^7.0"
+  },
   "require-dev": {
     "mockery/mockery": "^0.9.9",
     "phpunit/phpunit": "^6.2"
