@@ -6,6 +6,7 @@ namespace EmailValidation\Validations;
 
 use EmailValidation\EmailAddress;
 use EmailValidation\EmailDataProvider;
+use EmailValidation\EmailDataProviderInterface;
 
 abstract class Validator
 {
@@ -17,9 +18,9 @@ abstract class Validator
 
     /**
      * @param EmailAddress $emailAddress
-     * @param EmailDataProvider $emailDataProvider
+     * @param EmailDataProviderInterface $emailDataProvider
      */
-    public function __construct(EmailAddress $emailAddress = null, EmailDataProvider $emailDataProvider = null)
+    public function __construct(EmailAddress $emailAddress = null, EmailDataProviderInterface $emailDataProvider = null)
     {
         $this->emailAddress = $emailAddress;
         $this->emailDataProvider = $emailDataProvider;
@@ -44,9 +45,9 @@ abstract class Validator
     }
 
     /**
-     * @return EmailDataProvider
+     * @return EmailDataProviderInterface
      */
-    public function getEmailDataProvider(): EmailDataProvider
+    public function getEmailDataProvider(): EmailDataProviderInterface
     {
         return $this->emailDataProvider;
     }
@@ -62,10 +63,10 @@ abstract class Validator
     }
 
     /**
-     * @param EmailDataProvider|null $emailDataProvider
+     * @param EmailDataProviderInterface|null $emailDataProvider
      * @return $this
      */
-    public function setEmailDataProvider($emailDataProvider)
+    public function setEmailDataProvider(EmailDataProviderInterface $emailDataProvider)
     {
         $this->emailDataProvider = $emailDataProvider;
         return $this;

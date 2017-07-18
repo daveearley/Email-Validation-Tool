@@ -17,18 +17,18 @@ class EmailValidator
     /** @var ValidationResults */
     private $validationResults;
 
-    /** @var EmailDataProvider */
+    /** @var EmailDataProviderInterface */
     private $emailDataProvider;
 
     /**
      * @param EmailAddress $emailAddress
      * @param ValidationResults $validationResults
-     * @param EmailDataProvider $emailDataProvider
+     * @param EmailDataProviderInterface $emailDataProvider
      */
     public function __construct(
         EmailAddress $emailAddress,
         ValidationResults $validationResults,
-        EmailDataProvider $emailDataProvider
+        EmailDataProviderInterface $emailDataProvider
     )
     {
         $this->emailAddress = $emailAddress;
@@ -91,9 +91,9 @@ class EmailValidator
     }
 
     /**
-     * @return EmailDataProvider
+     * @return EmailDataProviderInterface
      */
-    private function getEmailDataProvider(): EmailDataProvider
+    private function getEmailDataProvider(): EmailDataProviderInterface
     {
         return $this->emailDataProvider;
     }
