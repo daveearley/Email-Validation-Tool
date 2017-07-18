@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-      image: nginx:latest
+      image: nginx:1.13.3-alpine
       ports:
           - "8880:80"
       volumes:
@@ -10,6 +10,6 @@ services:
       links:
           - php
   php:
-      image: php:7.0.21-alpine
+      image: php:7.0.21-fpm-alpine
       volumes:
           - .:/web
