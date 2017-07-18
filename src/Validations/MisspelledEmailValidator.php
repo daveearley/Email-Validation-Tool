@@ -42,15 +42,20 @@ class MisspelledEmailValidator extends Validator
      */
     private function findEmailAddressSuggestion(): string
     {
-        $email = $this->getEmailAddress();
-        $domainSuggestion = $this->findDomainSuggestion();
-        if ($this->findDomainSuggestion()) {
-            return str_replace($email->getHostPart(), $domainSuggestion, $email->asString());
+        if ($domainSuggestion = $this->findDomainSuggestion()) {
+            return str_replace(
+                $this->getEmailAddress()->getHostPart(),
+                $domainSuggestion,
+                $this->getEmailAddress()->asString()
+            );
         }
 
-        $topLevelDomainSuggestion = $this->findTopLevelDomainSuggestion();
-        if ($this->findTopLevelDomainSuggestion()) {
-            return str_replace($email->getTopLevelDomainPart(), $topLevelDomainSuggestion, $email->asString());
+        if ($topLevelDomainSuggestion = $this->findTopLevelDomainSuggestion()) {
+            return str_replace(
+                $this->getEmailAddress()->getTopLevelDomainPart(),
+                $topLevelDomainSuggestion,
+                $this->getEmailAddress()->asString()
+            );
         }
 
         return '';
