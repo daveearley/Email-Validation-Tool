@@ -124,6 +124,55 @@ docker-compose up -d
 ```
 in the repository root. You can then validate an email by navigating to http://localhost:8880?email=email.to.validate@example.com. The result will be JSON string as per above.
 
+## Adding a custom data source
+
+The easiest way to add new data is to update the [data files](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data) manually. You can also create your own data provider by creating a data provider class which implements the [EmailValidation\EmailDataProviderInterface](https://github.com/daveearley/Email-Validation-Tool/blob/master/src/EmailDataProviderInterface.php).
+
+Example Code:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace EmailValidation;
+
+class CustomEmailDataProvider implements EmailDataProviderInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function getEmailProviders(): array
+    {
+        return ['custom.com'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTopLevelDomains(): array
+    {
+        return ['custom'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDisposableEmailProviders(): array
+    {
+        return ['custom.com', 'another.com'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRoleEmailPrefixes(): array
+    {
+        return ['custom'];
+    }
+}
+```
+
 # FAQ
 
 ### Is this validation accurate?
