@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace EmailValidation\Validations;
 
 /**
- * Adapted from: https://github.com/GromNaN/MailCheck
+ * Adapted from: https://github.com/GromNaN/MailCheck.
  */
 class MisspelledEmailValidator extends Validator
 {
@@ -93,8 +93,9 @@ class MisspelledEmailValidator extends Validator
 
     /**
      * @param string $stringToCheck
-     * @param array $wordsToCheck
-     * @param int $minimumDistance
+     * @param array  $wordsToCheck
+     * @param int    $minimumDistance
+     *
      * @return string|bool
      */
     private function findClosestWord(string $stringToCheck, array $wordsToCheck, int $minimumDistance): string

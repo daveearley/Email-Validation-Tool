@@ -25,7 +25,8 @@ class MxRecordsValidator extends Validator
 
     /**
      * @param string $host
-     * @param null $type
+     * @param null   $type
+     *
      * @return bool
      */
     protected function checkDns(string $host, $type = null): bool

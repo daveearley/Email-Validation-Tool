@@ -65,7 +65,7 @@ class EmailValidationTest extends TestCase
         $this->validationResultsMock->shouldReceive('hasResults')->andReturn(false);
         $this->validationResultsMock->shouldReceive('getValidationResults')->andReturnSelf();
         $this->validationResultsMock->shouldReceive('asArray')->andReturn([
-                'valid_email' => true
+                'valid_email' => true,
             ]
         );
 

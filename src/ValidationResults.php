@@ -7,11 +7,11 @@ namespace EmailValidation;
 class ValidationResults
 {
     /** @var array */
-    private $results = array();
+    private $results = [];
 
     /**
      * @param string $resultName
-     * @param mixed $resultValue
+     * @param mixed  $resultValue
      */
     public function addResult(string $resultName, $resultValue)
     {

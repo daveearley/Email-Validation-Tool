@@ -11,8 +11,9 @@ class DisposableEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider disposableEmailsDataProvider
+     *
      * @param string $emailAddress
-     * @param bool $expectedResult
+     * @param bool   $expectedResult
      */
     public function testIsEmailDisposable($emailAddress, $expectedResult)
     {
@@ -35,7 +36,7 @@ class DisposableEmailValidatorTest extends TestCase
             ['dave@something.com', false],
             ['dave@bestvpn.top', true],
             ['dave@bel.kr', true],
-            ['dave@10minutemail.de', true]
+            ['dave@10minutemail.de', true],
         ];
     }
 }

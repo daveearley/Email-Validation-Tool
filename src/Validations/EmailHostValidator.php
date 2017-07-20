@@ -18,7 +18,7 @@ class EmailHostValidator extends Validator
     {
         $hostName = $this->getEmailAddress()->getHostPart();
         if ($hostName) {
-            return ($this->getHostByName($hostName) !== $hostName);
+            return $this->getHostByName($hostName) !== $hostName;
         }
 
         return false; // @codeCoverageIgnore
@@ -26,6 +26,7 @@ class EmailHostValidator extends Validator
 
     /**
      * @param string $hostName
+     *
      * @return string
      */
     protected function getHostByName(string $hostName): string

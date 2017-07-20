@@ -10,8 +10,9 @@ class ValidFormatValidatorTest extends TestCase
 {
     /**
      * @dataProvider emailsDataProvider
+     *
      * @param mixed $emailAddress
-     * @param bool $expectedResult
+     * @param bool  $expectedResult
      */
     public function testIsValidFormat($emailAddress, $expectedResult)
     {

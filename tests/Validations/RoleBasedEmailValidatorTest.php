@@ -11,8 +11,9 @@ class RoleBasedEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider rolesDataProvider
+     *
      * @param string $emailAddress
-     * @param bool $expectedResult
+     * @param bool   $expectedResult
      */
     public function testIsRoleBasesEMail($emailAddress, $expectedResult)
     {
