@@ -12,7 +12,7 @@ class EmailValidator
     private $emailAddress;
 
     /** @var Validator[] */
-    private $registeredValidators = array();
+    private $registeredValidators = [];
 
     /** @var ValidationResults */
     private $validationResults;
@@ -21,24 +21,23 @@ class EmailValidator
     private $emailDataProvider;
 
     /**
-     * @param EmailAddress $emailAddress
-     * @param ValidationResults $validationResults
+     * @param EmailAddress               $emailAddress
+     * @param ValidationResults          $validationResults
      * @param EmailDataProviderInterface $emailDataProvider
      */
     public function __construct(
         EmailAddress $emailAddress,
         ValidationResults $validationResults,
         EmailDataProviderInterface $emailDataProvider
-    )
-    {
+    ) {
         $this->emailAddress = $emailAddress;
         $this->validationResults = $validationResults;
         $this->emailDataProvider = $emailDataProvider;
     }
 
-
     /**
      * @param Validator $validator
+     *
      * @return self
      */
     public function registerValidator(Validator $validator): EmailValidator
@@ -46,11 +45,13 @@ class EmailValidator
         $this->registeredValidators[] = $validator
             ->setEmailAddress($this->getEmailAddress())
             ->setEmailDataProvider($this->getEmailDataProvider());
+
         return $this;
     }
 
     /**
      * @param Validator[] $validators
+     *
      * @return self
      */
     public function registerValidators(array $validators): EmailValidator
@@ -58,6 +59,7 @@ class EmailValidator
         foreach ($validators as $validator) {
             $this->registerValidator($validator);
         }
+
         return $this;
     }
 
@@ -79,6 +81,7 @@ class EmailValidator
         if (!$this->validationResults->hasResults()) {
             $this->runValidation();
         }
+
         return $this->validationResults;
     }
 

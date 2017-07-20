@@ -1967,5 +1967,5 @@ return [
     'zxcv.com',
     'zxcvbnm.com',
     'zzi.us',
-    'zzz.com'
+    'zzz.com',
 ];

@@ -7,10 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class EmailDataProviderTest extends TestCase
 {
-    /** @var EmailDataProvider  */
+    /** @var EmailDataProvider */
     private $emailDataProvider;
 
-    protected  function setUp()
+    protected function setUp()
     {
         $this->emailDataProvider = new EmailDataProvider();
     }

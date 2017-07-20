@@ -11,8 +11,9 @@ class FreeEmailProviderValidatorTest extends TestCase
 {
     /**
      * @dataProvider freeEmailsDataProvider
+     *
      * @param string $emailAddress
-     * @param bool $expectedResult
+     * @param bool   $expectedResult
      */
     public function testIsEmailAProvider($emailAddress, $expectedResult)
     {

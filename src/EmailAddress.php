@@ -28,8 +28,6 @@ class EmailAddress
         if ($this->isValidEmailAddressFormat()) {
             return $this->getEmailPart(self::EMAIL_NAME_PART);
         }
-
-        return null;
     }
 
     /**
@@ -40,8 +38,6 @@ class EmailAddress
         if ($this->isValidEmailAddressFormat()) {
             return $this->getEmailPart(self::EMAIL_HOST_PART);
         }
-
-        return null;
     }
 
     /**
@@ -52,8 +48,6 @@ class EmailAddress
         if ($this->isValidEmailAddressFormat()) {
             return explode('.', $this->getEmailPart(self::EMAIL_HOST_PART))[1];
         }
-
-        return null;
     }
 
     /**
@@ -69,11 +63,12 @@ class EmailAddress
      */
     public function asString(): string
     {
-        return (string)$this->emailAddress;
+        return (string) $this->emailAddress;
     }
 
     /**
      * @param int $partNumber
+     *
      * @return mixed
      */
     private function getEmailPart(int $partNumber)

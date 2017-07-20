@@ -843,6 +843,5 @@ return [
     'wordpress',
     'work',
     'writers',
-    'www'
+    'www',
 ];
-

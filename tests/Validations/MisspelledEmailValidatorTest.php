@@ -11,6 +11,7 @@ class MisspelledEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider emailsDataProvider
+     *
      * @param string $emailAddress
      * @param string $expectedResult
      */
@@ -36,7 +37,7 @@ class MisspelledEmailValidatorTest extends TestCase
             ['dave@yahoo.oe', 'dave@yahoo.de'],
             ['dave@a-made-up-domain.infi', 'dave@a-made-up-domain.info'],
             ['info@iroland.cim', 'info@ireland.com'],
-            ['info@gmail.com', '']
+            ['info@gmail.com', ''],
         ];
     }
 }

@@ -3622,5 +3622,5 @@ return [
     'zybermail.com',
     'zydecofan.com',
     'zzn.com',
-    'zzom.co.uk'
+    'zzom.co.uk',
 ];

@@ -1376,5 +1376,5 @@ return [
     'xerox',
     'xfinity',
     'xihuan',
-    'xin'
+    'xin',
 ];
