@@ -25,9 +25,12 @@ class MisspelledEmailValidator extends Validator
      */
     public function getResultResponse(): string
     {
+        if (!$this->getEmailAddress()->isValidEmailAddressFormat()) {
+            return ''; // @codeCoverageIgnore
+        }
+
         $suggestion = $this->findEmailAddressSuggestion();
-        $emailAddress = $this->getEmailAddress();
-        if ($suggestion === $emailAddress->asString() || !$emailAddress->isValidEmailAddressFormat()) {
+        if ($suggestion === $this->getEmailAddress()->asString()) {
             return ''; // @codeCoverageIgnore
         }
 
