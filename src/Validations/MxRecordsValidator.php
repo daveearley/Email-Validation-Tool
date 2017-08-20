@@ -6,6 +6,9 @@ namespace EmailValidation\Validations;
 
 class MxRecordsValidator extends Validator
 {
+    /**
+     * @return string
+     */
     public function getValidatorName(): string
     {
         return 'valid_mx_records'; // @codeCoverageIgnore
