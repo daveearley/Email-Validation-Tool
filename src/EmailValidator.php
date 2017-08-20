@@ -29,8 +29,7 @@ class EmailValidator
         EmailAddress $emailAddress,
         ValidationResults $validationResults,
         EmailDataProviderInterface $emailDataProvider
-    )
-    {
+    ) {
         $this->emailAddress = $emailAddress;
         $this->validationResults = $validationResults;
         $this->emailDataProvider = $emailDataProvider;
