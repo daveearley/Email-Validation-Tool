@@ -126,7 +126,7 @@ in the repository root. You can then validate an email by navigating to http://l
 
 ## Adding a custom data source
 
-The easiest way to add new data is to update the [data files](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data) manually. You can also create your own data provider by creating a data provider class which implements the [EmailValidation\EmailDataProviderInterface](https://github.com/daveearley/Email-Validation-Tool/blob/master/src/EmailDataProviderInterface.php).
+You can create your own data provider by creating a data provider class which implements the [EmailValidation\EmailDataProviderInterface](https://github.com/daveearley/Email-Validation-Tool/blob/master/src/EmailDataProviderInterface.php).
 
 Example Code:
 
