@@ -27,16 +27,6 @@ abstract class Validator
     }
 
     /**
-     * @return mixed
-     */
-    abstract public function getResultResponse();
-
-    /**
-     * @return string
-     */
-    abstract public function getValidatorName(): string;
-
-    /**
      * @return EmailAddress
      */
     public function getEmailAddress(): EmailAddress

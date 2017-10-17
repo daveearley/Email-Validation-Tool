@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation\Validations;
 
-class FreeEmailServiceValidator extends Validator
+class FreeEmailServiceValidator extends Validator implements ValidatorInterface
 {
     /**
      * @return string

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation\Validations;
 
-class EmailHostValidator extends Validator
+class EmailHostValidator extends Validator implements ValidatorInterface
 {
     /**
      * @return string

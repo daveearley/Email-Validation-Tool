@@ -7,7 +7,7 @@ namespace EmailValidation\Validations;
 /**
  * Adapted from: https://github.com/GromNaN/MailCheck
  */
-class MisspelledEmailValidator extends Validator
+class MisspelledEmailValidator extends Validator implements ValidatorInterface
 {
     const MINIMUM_WORD_DISTANCE_DOMAIN = 2;
     const MINIMUM_WORD_DISTANCE_TLD = 1;

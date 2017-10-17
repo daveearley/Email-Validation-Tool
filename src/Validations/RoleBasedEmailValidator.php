@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation\Validations;
 
-class RoleBasedEmailValidator extends Validator
+class RoleBasedEmailValidator extends Validator implements ValidatorInterface
 {
     /**
      * @return string

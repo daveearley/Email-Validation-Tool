@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation\Validations;
 
-class MxRecordsValidator extends Validator
+class MxRecordsValidator extends Validator implements ValidatorInterface
 {
     /**
      * @return string
