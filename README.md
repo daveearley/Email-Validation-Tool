@@ -39,7 +39,7 @@ require __DIR__ . '/vendor/autoload.php';
 $validator = EmailValidation\EmailValidatorFactory::create('dave@gmoil.con');
 
 $jsonResult = $validator->getValidationResults()->asJson();
-$arrayResult = $validator->getValidationResults()->asAray();
+$arrayResult = $validator->getValidationResults()->asArray();
 
 echo $jsonResult;
 
