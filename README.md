@@ -177,3 +177,12 @@ class CustomEmailDataProvider implements EmailDataProviderInterface
 
 ### Is this validation accurate?
 No, none of these tests are 100% accurate. As with any email validation there will always be false positives & negatives. The only way to guarantee an email is valid is to send an email and solicit a response. However, this library is still useful for detecting disposable emails etc., and also acts as a good first line of defence.
+
+### Can I manually update the disposable email provider data?
+Yes, this project relies on [this great]( https://github.com/ivolo/disposable-email-domains) repository for its list of disposable email providers. To fetch the latest list from that repo you can run
+
+```shell
+./scripts/update-dispsable-email-providers.php
+```
+
+from the command line. This will fetch the data and save it to *./src/data/disposable-email-providers.php*
