@@ -10,7 +10,8 @@
     "disposable email check"
   ],
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "ivolo/disposable-email-domains": "^1.0"
   },
   "require-dev": {
     "mockery/mockery": "^0.9.9",
