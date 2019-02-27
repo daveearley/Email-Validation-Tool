@@ -10,7 +10,8 @@ class EmailDataProvider implements EmailDataProviderInterface
     const TOP_LEVEL_DOMAINS = __DIR__ . '/data/top-level-domains.php';
     const ROLE_BASED_EMAIL_PREFIXES = __DIR__ . '/data/role-based-email-prefixes.php';
 
-    protected $disposable_email_providers = null;
+    /** @var array */
+    protected $disposableEmailProviders = [];
 
     /**
      * {@inheritdoc}
@@ -33,14 +34,14 @@ class EmailDataProvider implements EmailDataProviderInterface
      */
     public function getDisposableEmailProviders(): array
     {
-        if (null == $this->disposable_email_providers) {
+        if (!$this->disposableEmailProviders) {
             // load index with known disposable email providers
-            $index = \file_get_contents(__DIR__.'/../vendor/ivolo/disposable-email-domains/index.json');
+            $index = file_get_contents(__DIR__ . '/../vendor/ivolo/disposable-email-domains/index.json');
 
-            $this->disposable_email_providers = \json_decode($index, true);
+            $this->disposableEmailProviders = json_decode($index, true);
         }
 
-        return $this->disposable_email_providers;
+        return (array)$this->disposableEmailProviders;
     }
 
     /**
