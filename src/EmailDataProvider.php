@@ -36,7 +36,7 @@ class EmailDataProvider implements EmailDataProviderInterface
     {
         if (!$this->disposableEmailProviders) {
             // load index with known disposable email providers
-            $index = file_get_contents(__DIR__ . '/../../../../vendor/ivolo/disposable-email-domains/index.json');
+            $index = file_get_contents(__DIR__ . '/../../../ivolo/disposable-email-domains/index.json');
 
             $this->disposableEmailProviders = json_decode($index, true);
         }
