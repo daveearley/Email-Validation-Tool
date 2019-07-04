@@ -3559,6 +3559,7 @@ return [
     'yahoo.ie',
     'yahoo.it',
     'yahoo.jp',
+    'yahoo.no',
     'yahoo.ru',
     'yahoo.se',
     'yahoofs.com',
