@@ -364,7 +364,7 @@ return [
     'dm',
     'dnp',
     'do',
-    '    docs',
+    'docs',
     'doctor',
     'dodge',
     'dog',
