@@ -7,63 +7,61 @@ use PHPUnit\Framework\TestCase;
 
 class EmailAddressTest extends TestCase
 {
-    const VALID_TEST_EMAIL = 'dave@gmail.com';
-    const INVALID_TEST_EMAIL = 'dave----gmail.com';
+    private const VALID_TEST_EMAIL = 'dave@gmail.com';
+    private const INVALID_TEST_EMAIL = 'dave----gmail.com';
 
-    /** @var EmailAddress */
-    private $validEmail;
+    private EmailAddress $validEmail;
 
-    /** @var EmailAddress */
-    private $invalidEmail;
+    private EmailAddress $invalidEmail;
 
-    protected function setUp()
-    {
-        $this->validEmail = new EmailAddress(self::VALID_TEST_EMAIL);
-        $this->invalidEmail = new EmailAddress(self::INVALID_TEST_EMAIL);
-    }
-
-    public function testAsString()
+    public function testAsString(): void
     {
         $this->assertSame(self::VALID_TEST_EMAIL, $this->validEmail->asString());
     }
 
-    public function testGetHostPart()
+    public function testGetHostPart(): void
     {
         $this->assertSame('gmail.com', $this->validEmail->getHostPart());
     }
 
-    public function testGetTldPart()
+    public function testGetTldPart(): void
     {
         $this->assertSame('com', $this->validEmail->getTopLevelDomainPart());
     }
 
-    public function testGetNamePart()
+    public function testGetNamePart(): void
     {
         $this->assertSame('dave', $this->validEmail->getNamePart());
     }
 
-    public function testGetHostPartForInvalidEmail()
+    public function testGetHostPartForInvalidEmail(): void
     {
-        $this->assertSame(null, $this->invalidEmail->getHostPart());
+        $this->assertNull($this->invalidEmail->getHostPart());
     }
 
-    public function testGetTldPartForInvalidEmail()
+    public function testGetTldPartForInvalidEmail(): void
     {
-        $this->assertSame(null, $this->invalidEmail->getTopLevelDomainPart());
+        $this->assertNull($this->invalidEmail->getTopLevelDomainPart());
     }
 
-    public function testGetNamePartForInvalidEmail()
+    public function testGetNamePartForInvalidEmail(): void
     {
-        $this->assertSame(null, $this->invalidEmail->getNamePart());
+        $this->assertNull($this->invalidEmail->getNamePart());
     }
 
-    public function testIsValidFormat()
+    public function testIsValidFormat(): void
     {
         $this->assertTrue($this->validEmail->isValidEmailAddressFormat());
     }
 
-    public function testIsValidFormatForInvalidEmail()
+    public function testIsValidFormatForInvalidEmail(): void
     {
         $this->assertFalse($this->invalidEmail->isValidEmailAddressFormat());
+    }
+
+    protected function setUp(): void
+    {
+        $this->validEmail = new EmailAddress(self::VALID_TEST_EMAIL);
+        $this->invalidEmail = new EmailAddress(self::INVALID_TEST_EMAIL);
     }
 }

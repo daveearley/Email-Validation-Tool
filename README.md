@@ -118,11 +118,10 @@ The expected output will be:
 ```
 
 ## Running in Docker
-You can easily validate over HTTP using docker. To get docker working run 
 ```bash
 docker-compose up -d 
 ```
-in the repository root. You can then validate an email by navigating to http://localhost:8880?email=email.to.validate@example.com. The result will be JSON string as per above.
+You can then validate an email by navigating to http://localhost:8880?email=email.to.validate@example.com. The result will be JSON string as per above.
 
 ## Adding a custom data source
 
@@ -139,33 +138,21 @@ namespace EmailValidation;
 
 class CustomEmailDataProvider implements EmailDataProviderInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getEmailProviders(): array
     {
         return ['custom.com'];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTopLevelDomains(): array
     {
         return ['custom'];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDisposableEmailProviders(): array
     {
         return ['custom.com', 'another.com'];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRoleEmailPrefixes(): array
     {
         return ['custom'];

@@ -11,10 +11,8 @@ class DisposableEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider disposableEmailsDataProvider
-     * @param string $emailAddress
-     * @param bool $expectedResult
      */
-    public function testIsEmailDisposable($emailAddress, $expectedResult)
+    public function testIsEmailDisposable(string $emailAddress, bool $expectedResult): void
     {
         $disposableEmailValidation = new DisposableEmailValidator(
             new EmailAddress($emailAddress),
@@ -24,9 +22,6 @@ class DisposableEmailValidatorTest extends TestCase
         $this->assertSame($expectedResult, $disposableEmailValidation->getResultResponse());
     }
 
-    /**
-     * @return array
-     */
     public function disposableEmailsDataProvider(): array
     {
         return [

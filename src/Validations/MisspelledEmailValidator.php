@@ -64,21 +64,6 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
     /**
      * @return bool|null|string
      */
-    private function findTopLevelDomainSuggestion()
-    {
-        $topLevelDomain = $this->getEmailAddress()->getTopLevelDomainPart();
-        $possibleTopLevelMatch = $this->findClosestWord(
-            $topLevelDomain,
-            $this->getEmailDataProvider()->getTopLevelDomains(),
-            self::MINIMUM_WORD_DISTANCE_TLD
-        );
-
-        return $topLevelDomain === $possibleTopLevelMatch ? null : $possibleTopLevelMatch;
-    }
-
-    /**
-     * @return bool|null|string
-     */
     private function findDomainSuggestion()
     {
         $domain = $this->getEmailAddress()->getHostPart();
@@ -113,5 +98,20 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
         }
 
         return $closestMatch;
+    }
+
+    /**
+     * @return bool|null|string
+     */
+    private function findTopLevelDomainSuggestion()
+    {
+        $topLevelDomain = $this->getEmailAddress()->getTopLevelDomainPart();
+        $possibleTopLevelMatch = $this->findClosestWord(
+            $topLevelDomain,
+            $this->getEmailDataProvider()->getTopLevelDomains(),
+            self::MINIMUM_WORD_DISTANCE_TLD
+        );
+
+        return $topLevelDomain === $possibleTopLevelMatch ? null : $possibleTopLevelMatch;
     }
 }

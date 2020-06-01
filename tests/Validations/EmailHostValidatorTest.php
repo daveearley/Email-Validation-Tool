@@ -15,18 +15,18 @@ class EmailHostValidatorTest extends TestCase
     /** @var EmailHostValidator|Mockery\MockInterface $hostValidator */
     private $hostValidator;
 
-    protected function setUp()
+    public function testHostIsChecked(): void
+    {
+        $this->hostValidator->shouldReceive('getHostByName')->with('gmail.com');
+        $this->hostValidator->getResultResponse();
+    }
+
+    protected function setUp(): void
     {
         $this->hostValidator = Mockery::mock(EmailHostValidator::class, [
             new EmailAddress('dave@gmail.com'),
         ])
             ->shouldAllowMockingProtectedMethods()
             ->makePartial();
-    }
-
-    public function testHostIsChecked()
-    {
-        $this->hostValidator->shouldReceive('getHostByName')->with('gmail.com');
-        $this->hostValidator->getResultResponse();
     }
 }

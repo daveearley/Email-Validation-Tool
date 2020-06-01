@@ -35,14 +35,6 @@ abstract class Validator
     }
 
     /**
-     * @return EmailDataProviderInterface
-     */
-    public function getEmailDataProvider(): EmailDataProviderInterface
-    {
-        return $this->emailDataProvider;
-    }
-
-    /**
      * @param EmailAddress $emailAddress
      * @return $this
      */
@@ -50,6 +42,14 @@ abstract class Validator
     {
         $this->emailAddress = $emailAddress;
         return $this;
+    }
+
+    /**
+     * @return EmailDataProviderInterface
+     */
+    public function getEmailDataProvider(): EmailDataProviderInterface
+    {
+        return $this->emailDataProvider;
     }
 
     /**

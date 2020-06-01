@@ -12,21 +12,20 @@ class MxRecordsValidatorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    /** @var MxRecordsValidator|Mockery\MockInterface $mxValidator */
-    private $mxValidator;
+    private MxRecordsValidator $mxValidator;
 
-    protected function setUp()
+    public function testMxRecordIsChecked(): void
+    {
+        $this->mxValidator->shouldReceive('checkDns')->with('dave@gmail.com', 'MX');
+        $this->mxValidator->getResultResponse();
+    }
+
+    protected function setUp(): void
     {
         $this->mxValidator = Mockery::mock(MxRecordsValidator::class, [
             new EmailAddress('dave@gmail.com'),
         ])
             ->shouldAllowMockingProtectedMethods()
             ->makePartial();
-    }
-
-    public function testMxRecordIsChecked()
-    {
-        $this->mxValidator->shouldReceive('checkDns')->with('dave@gmail.com', 'MX');
-        $this->mxValidator->getResultResponse();
     }
 }

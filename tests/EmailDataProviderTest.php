@@ -7,39 +7,38 @@ use PHPUnit\Framework\TestCase;
 
 class EmailDataProviderTest extends TestCase
 {
-    /** @var EmailDataProvider  */
-    private $emailDataProvider;
+    private EmailDataProvider $emailDataProvider;
 
-    protected  function setUp()
-    {
-        $this->emailDataProvider = new EmailDataProvider();
-    }
-
-    public function testGetEmailProviders()
+    public function testGetEmailProviders(): void
     {
         $emailProviders = $this->emailDataProvider->getEmailProviders();
-        $this->assertTrue(is_array($emailProviders));
-        $this->assertTrue(in_array('gmail.com', $emailProviders));
+        $this->assertIsArray($emailProviders);
+        $this->assertContains('gmail.com', $emailProviders);
     }
 
-    public function testGetDisposableEmailProviders()
+    public function testGetDisposableEmailProviders(): void
     {
         $emailProviders = $this->emailDataProvider->getDisposableEmailProviders();
-        $this->assertTrue(is_array($emailProviders));
-        $this->assertTrue(in_array('banit.club', $emailProviders));
+        $this->assertIsArray($emailProviders);
+        $this->assertContains('banit.club', $emailProviders);
     }
 
-    public function testGetRoleBasesPrefixes()
+    public function testGetRoleBasesPrefixes(): void
     {
         $prefixes = $this->emailDataProvider->getRoleEmailPrefixes();
-        $this->assertTrue(is_array($prefixes));
-        $this->assertTrue(in_array('ceo', $prefixes));
+        $this->assertIsArray($prefixes);
+        $this->assertContains('ceo', $prefixes);
     }
 
-    public function testGetTopLevelDomains()
+    public function testGetTopLevelDomains(): void
     {
         $tlds = $this->emailDataProvider->getTopLevelDomains();
-        $this->assertTrue(is_array($tlds));
-        $this->assertTrue(in_array('aero', $tlds));
+        $this->assertIsArray($tlds);
+        $this->assertContains('aero', $tlds);
+    }
+
+    protected function setUp(): void
+    {
+        $this->emailDataProvider = new EmailDataProvider();
     }
 }

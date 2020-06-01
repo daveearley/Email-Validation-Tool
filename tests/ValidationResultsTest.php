@@ -7,15 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class ValidationResultsTest extends TestCase
 {
-    /** @var ValidationResults */
-    private $validationResults;
+    private ValidationResults $validationResults;
 
-    protected function setUp()
-    {
-        $this->validationResults = new ValidationResults();
-    }
-
-    public function testAddResult()
+    public function testAddResult(): void
     {
         $this->validationResults->addResult('a-key', 'a-value');
         $actual = $this->validationResults->asArray();
@@ -37,12 +31,17 @@ class ValidationResultsTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    public function testHasResults()
+    public function testHasResults(): void
     {
         $validationResults = new ValidationResults();
         $this->assertFalse($validationResults->hasResults());
 
         $validationResults->addResult('a-key', 'a-value');
         $this->assertTrue($validationResults->hasResults());
+    }
+
+    protected function setUp(): void
+    {
+        $this->validationResults = new ValidationResults();
     }
 }

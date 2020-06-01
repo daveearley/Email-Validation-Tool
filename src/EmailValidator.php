@@ -8,44 +8,24 @@ use EmailValidation\Validations\Validator;
 
 class EmailValidator
 {
-    /** @var EmailAddress */
-    private $emailAddress;
+    private EmailAddress $emailAddress;
 
     /** @var Validator[] */
-    private $registeredValidators = array();
+    private array $registeredValidators = [];
 
-    /** @var ValidationResults */
-    private $validationResults;
+    private ValidationResults $validationResults;
 
-    /** @var EmailDataProviderInterface */
-    private $emailDataProvider;
+    private EmailDataProviderInterface $emailDataProvider;
 
-    /**
-     * @param EmailAddress $emailAddress
-     * @param ValidationResults $validationResults
-     * @param EmailDataProviderInterface $emailDataProvider
-     */
     public function __construct(
         EmailAddress $emailAddress,
         ValidationResults $validationResults,
         EmailDataProviderInterface $emailDataProvider
-    ) {
+    )
+    {
         $this->emailAddress = $emailAddress;
         $this->validationResults = $validationResults;
         $this->emailDataProvider = $emailDataProvider;
-    }
-
-
-    /**
-     * @param Validator $validator
-     * @return self
-     */
-    public function registerValidator(Validator $validator): EmailValidator
-    {
-        $this->registeredValidators[] = $validator
-            ->setEmailAddress($this->getEmailAddress())
-            ->setEmailDataProvider($this->getEmailDataProvider());
-        return $this;
     }
 
     /**
@@ -60,19 +40,24 @@ class EmailValidator
         return $this;
     }
 
-    /**
-     * @return void
-     */
-    public function runValidation()
+    public function registerValidator(Validator $validator): EmailValidator
     {
-        foreach ($this->registeredValidators as $validator) {
-            $this->validationResults->addResult($validator->getValidatorName(), $validator->getResultResponse());
-        }
+        $this->registeredValidators[] = $validator
+            ->setEmailAddress($this->getEmailAddress())
+            ->setEmailDataProvider($this->getEmailDataProvider());
+        return $this;
     }
 
-    /**
-     * @return ValidationResults
-     */
+    private function getEmailAddress(): EmailAddress
+    {
+        return $this->emailAddress;
+    }
+
+    private function getEmailDataProvider(): EmailDataProviderInterface
+    {
+        return $this->emailDataProvider;
+    }
+
     public function getValidationResults(): ValidationResults
     {
         if (!$this->validationResults->hasResults()) {
@@ -81,19 +66,10 @@ class EmailValidator
         return $this->validationResults;
     }
 
-    /**
-     * @return EmailAddress
-     */
-    private function getEmailAddress(): EmailAddress
+    public function runValidation()
     {
-        return $this->emailAddress;
-    }
-
-    /**
-     * @return EmailDataProviderInterface
-     */
-    private function getEmailDataProvider(): EmailDataProviderInterface
-    {
-        return $this->emailDataProvider;
+        foreach ($this->registeredValidators as $validator) {
+            $this->validationResults->addResult($validator->getValidatorName(), $validator->getResultResponse());
+        }
     }
 }
