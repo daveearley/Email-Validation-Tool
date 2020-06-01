@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace EmailValidation;
 
-use EmailValidation\Validations\EmailHostValidator;
-use EmailValidation\Validations\RoleBasedEmailValidator;
 use EmailValidation\Validations\DisposableEmailValidator;
+use EmailValidation\Validations\EmailHostValidator;
 use EmailValidation\Validations\FreeEmailServiceValidator;
 use EmailValidation\Validations\MisspelledEmailValidator;
 use EmailValidation\Validations\MxRecordsValidator;
+use EmailValidation\Validations\RoleBasedEmailValidator;
 use EmailValidation\Validations\Validator;
 use EmailValidation\Validations\ValidFormatValidator;
 
 class EmailValidatorFactory
 {
     /** @var Validator[] */
-    private static $defaultValidators = [
+    private static array $defaultValidators = [
         ValidFormatValidator::class,
         MxRecordsValidator::class,
         MisspelledEmailValidator::class,
@@ -26,10 +26,6 @@ class EmailValidatorFactory
         EmailHostValidator::class
     ];
 
-    /**
-     * @param string $emailAddress
-     * @return EmailValidator
-     */
     public static function create(string $emailAddress): EmailValidator
     {
         $emailAddress = new EmailAddress($emailAddress);

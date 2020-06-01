@@ -11,10 +11,8 @@ class RoleBasedEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider rolesDataProvider
-     * @param string $emailAddress
-     * @param bool $expectedResult
      */
-    public function testIsRoleBasesEMail($emailAddress, $expectedResult)
+    public function testIsRoleBasesEMail(string $emailAddress, bool $expectedResult): void
     {
         $roleBasedEmailValidator = new RoleBasedEmailValidator(
             new EmailAddress($emailAddress),
@@ -24,9 +22,6 @@ class RoleBasedEmailValidatorTest extends TestCase
         $this->assertSame($expectedResult, $roleBasedEmailValidator->getResultResponse());
     }
 
-    /**
-     * @return array
-     */
     public function rolesDataProvider(): array
     {
         return [

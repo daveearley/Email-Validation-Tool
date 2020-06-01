@@ -17,31 +17,11 @@ class EmailValidationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    /** @var EmailAddress|MockInterface */
-    private $emailMock;
+    private ValidationResults $validationResultsMock;
 
-    /** @var ValidationResults|MockInterface */
-    private $validationResultsMock;
+    private EmailValidator $emailValidation;
 
-    /** @var EmailValidator */
-    private $emailValidation;
-
-    /** @var EmailDataProvider|MockInterface */
-    private $emailDataProviderMock;
-
-    protected function setUp()
-    {
-        $this->emailMock = Mockery::mock(EmailAddress::class);
-        $this->validationResultsMock = Mockery::mock(ValidationResults::class);
-        $this->emailDataProviderMock = Mockery::mock(EmailDataProvider::class);
-        $this->emailValidation = new EmailValidator(
-            $this->emailMock,
-            $this->validationResultsMock,
-            $this->emailDataProviderMock
-        );
-    }
-
-    public function testRunValidation()
+    public function testRunValidation(): void
     {
         $this->validationResultsMock
             ->shouldReceive('addResult')
@@ -59,7 +39,7 @@ class EmailValidationTest extends TestCase
         $this->emailValidation->runValidation();
     }
 
-    public function testGetValidationResults()
+    public function testGetValidationResults(): void
     {
         $this->validationResultsMock->shouldReceive('addResult')->times(1);
         $this->validationResultsMock->shouldReceive('hasResults')->andReturn(false);
@@ -81,5 +61,17 @@ class EmailValidationTest extends TestCase
 
         $actual = $this->emailValidation->getValidationResults();
         $this->assertInstanceOf(ValidationResults::class, $actual);
+    }
+
+    protected function setUp(): void
+    {
+        $emailMock = Mockery::mock(EmailAddress::class);
+        $this->validationResultsMock = Mockery::mock(ValidationResults::class);
+        $emailDataProviderMock = Mockery::mock(EmailDataProvider::class);
+        $this->emailValidation = new EmailValidator(
+            $emailMock,
+            $this->validationResultsMock,
+            $emailDataProviderMock
+        );
     }
 }

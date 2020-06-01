@@ -10,17 +10,18 @@
     "disposable email check"
   ],
   "require": {
-    "php": "^7.0"
+    "php": "^7.4",
+    "ext-json": "*"
   },
   "require-dev": {
-    "mockery/mockery": "^0.9.9",
-    "phpunit/phpunit": "^6.2"
+    "mockery/mockery": "dev-master",
+    "phpunit/phpunit": "^9.0"
   },
   "license": "MIT",
   "autoload": {
     "psr-4": {
       "EmailValidation\\": "src/",
-      "EmailValidation\\Tests\\": "src/tests"
+      "EmailValidation\\Tests\\": "tests"
     }
   },
   "authors": [
@@ -28,5 +29,13 @@
       "name": "Dave Earley",
       "email": "dave@earley.email"
     }
-  ]
+  ],
+  "scripts": {
+    "update-data-files":  [
+      "(cd scripts && ./update-disposable-email-providers.php)",
+      "(cd scripts && ./update-top-level-domains.php)"
+    ],
+    "post-install-cmd": "@update-data-files",
+    "post-update-cmd": "@update-data-files"
+  }
 }

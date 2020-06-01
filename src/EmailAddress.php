@@ -6,24 +6,17 @@ namespace EmailValidation;
 
 class EmailAddress
 {
-    const EMAIL_NAME_PART = 0;
-    const EMAIL_HOST_PART = 1;
+    public const EMAIL_NAME_PART = 0;
+    public const EMAIL_HOST_PART = 1;
 
-    /** @var string */
-    private $emailAddress;
+    private string $emailAddress;
 
-    /**
-     * @param string $emailAddress
-     */
     public function __construct(string $emailAddress)
     {
         $this->emailAddress = $emailAddress;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNamePart()
+    public function getNamePart(): ?string
     {
         if ($this->isValidEmailAddressFormat()) {
             return $this->getEmailPart(self::EMAIL_NAME_PART);
@@ -32,10 +25,17 @@ class EmailAddress
         return null;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getHostPart()
+    public function isValidEmailAddressFormat(): bool
+    {
+        return filter_var($this->emailAddress, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    private function getEmailPart(int $partNumber): string
+    {
+        return (explode('@', $this->emailAddress))[$partNumber];
+    }
+
+    public function getHostPart(): ?string
     {
         if ($this->isValidEmailAddressFormat()) {
             return $this->getEmailPart(self::EMAIL_HOST_PART);
@@ -44,10 +44,7 @@ class EmailAddress
         return null;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getTopLevelDomainPart()
+    public function getTopLevelDomainPart(): ?string
     {
         if ($this->isValidEmailAddressFormat()) {
             return explode('.', $this->getEmailPart(self::EMAIL_HOST_PART))[1];
@@ -56,28 +53,8 @@ class EmailAddress
         return null;
     }
 
-    /**
-     * @return bool
-     */
-    public function isValidEmailAddressFormat(): bool
-    {
-        return filter_var($this->emailAddress, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
-    /**
-     * @return string
-     */
     public function asString(): string
     {
-        return (string)$this->emailAddress;
-    }
-
-    /**
-     * @param int $partNumber
-     * @return mixed
-     */
-    private function getEmailPart(int $partNumber)
-    {
-        return (explode('@', $this->emailAddress))[$partNumber];
+        return $this->emailAddress;
     }
 }

@@ -13,7 +13,7 @@ class ValidFormatValidatorTest extends TestCase
      * @param mixed $emailAddress
      * @param bool $expectedResult
      */
-    public function testIsValidFormat($emailAddress, $expectedResult)
+    public function testIsValidFormat($emailAddress, bool $expectedResult): void
     {
         $disposableEmailValidation = new ValidFormatValidator(
             new EmailAddress($emailAddress)
@@ -22,9 +22,6 @@ class ValidFormatValidatorTest extends TestCase
         $this->assertSame($expectedResult, $disposableEmailValidation->getResultResponse());
     }
 
-    /**
-     * @return array
-     */
     public function emailsDataProvider(): array
     {
         return [

@@ -11,10 +11,8 @@ class MisspelledEmailValidatorTest extends TestCase
 {
     /**
      * @dataProvider emailsDataProvider
-     * @param string $emailAddress
-     * @param string $expectedResult
      */
-    public function testIsEmailAProvider($emailAddress, $expectedResult)
+    public function testIsEmailAProvider(string $emailAddress, string $expectedResult): void
     {
         $misspelledEmailValidator = new MisspelledEmailValidator(
             new EmailAddress($emailAddress),
@@ -24,9 +22,6 @@ class MisspelledEmailValidatorTest extends TestCase
         $this->assertSame($expectedResult, $misspelledEmailValidator->getResultResponse());
     }
 
-    /**
-     * @return array
-     */
     public function emailsDataProvider(): array
     {
         return [

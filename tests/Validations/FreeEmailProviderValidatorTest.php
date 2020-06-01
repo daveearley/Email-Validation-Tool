@@ -11,10 +11,8 @@ class FreeEmailProviderValidatorTest extends TestCase
 {
     /**
      * @dataProvider freeEmailsDataProvider
-     * @param string $emailAddress
-     * @param bool $expectedResult
      */
-    public function testIsEmailAProvider($emailAddress, $expectedResult)
+    public function testIsEmailAProvider(string $emailAddress, bool $expectedResult): void
     {
         $freeEmailServiceValidator = new FreeEmailServiceValidator(
             new EmailAddress($emailAddress),
@@ -24,9 +22,6 @@ class FreeEmailProviderValidatorTest extends TestCase
         $this->assertSame($expectedResult, $freeEmailServiceValidator->getResultResponse());
     }
 
-    /**
-     * @return array
-     */
     public function freeEmailsDataProvider(): array
     {
         return [
