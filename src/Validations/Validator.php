@@ -10,53 +10,33 @@ use EmailValidation\EmailDataProviderInterface;
 
 abstract class Validator
 {
-    /** @var EmailAddress */
-    private $emailAddress;
+    private ?EmailAddress $emailAddress;
 
-    /** @var EmailDataProvider|null */
-    private $emailDataProvider;
+    private ?EmailDataProvider $emailDataProvider;
 
-    /**
-     * @param EmailAddress $emailAddress
-     * @param EmailDataProviderInterface $emailDataProvider
-     */
     public function __construct(EmailAddress $emailAddress = null, EmailDataProviderInterface $emailDataProvider = null)
     {
         $this->emailAddress = $emailAddress;
         $this->emailDataProvider = $emailDataProvider;
     }
 
-    /**
-     * @return EmailAddress
-     */
     public function getEmailAddress(): EmailAddress
     {
         return $this->emailAddress;
     }
 
-    /**
-     * @param EmailAddress $emailAddress
-     * @return $this
-     */
-    public function setEmailAddress(EmailAddress $emailAddress)
+    public function setEmailAddress(EmailAddress $emailAddress): Validator
     {
         $this->emailAddress = $emailAddress;
         return $this;
     }
 
-    /**
-     * @return EmailDataProviderInterface
-     */
     public function getEmailDataProvider(): EmailDataProviderInterface
     {
         return $this->emailDataProvider;
     }
 
-    /**
-     * @param EmailDataProviderInterface|null $emailDataProvider
-     * @return $this
-     */
-    public function setEmailDataProvider(EmailDataProviderInterface $emailDataProvider)
+    public function setEmailDataProvider(EmailDataProviderInterface $emailDataProvider): Validator
     {
         $this->emailDataProvider = $emailDataProvider;
         return $this;

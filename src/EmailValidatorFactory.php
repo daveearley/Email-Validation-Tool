@@ -16,7 +16,7 @@ use EmailValidation\Validations\ValidFormatValidator;
 class EmailValidatorFactory
 {
     /** @var Validator[] */
-    private static array $defaultValidators = [
+    protected static array $defaultValidators = [
         ValidFormatValidator::class,
         MxRecordsValidator::class,
         MisspelledEmailValidator::class,
