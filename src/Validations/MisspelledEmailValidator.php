@@ -9,20 +9,14 @@ namespace EmailValidation\Validations;
  */
 class MisspelledEmailValidator extends Validator implements ValidatorInterface
 {
-    const MINIMUM_WORD_DISTANCE_DOMAIN = 2;
-    const MINIMUM_WORD_DISTANCE_TLD = 1;
+    private const MINIMUM_WORD_DISTANCE_DOMAIN = 2;
+    private const MINIMUM_WORD_DISTANCE_TLD = 1;
 
-    /**
-     * @return string
-     */
     public function getValidatorName(): string
     {
         return 'possible_email_correction'; // @codeCoverageIgnore
     }
 
-    /**
-     * @return string
-     */
     public function getResultResponse(): string
     {
         if (!$this->getEmailAddress()->isValidEmailAddressFormat()) {
@@ -76,12 +70,6 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
         return $domain === $possibleMatch ? null : $possibleMatch;
     }
 
-    /**
-     * @param string $stringToCheck
-     * @param array $wordsToCheck
-     * @param int $minimumDistance
-     * @return string|bool
-     */
     private function findClosestWord(string $stringToCheck, array $wordsToCheck, int $minimumDistance): string
     {
         if (in_array($stringToCheck, $wordsToCheck)) {
