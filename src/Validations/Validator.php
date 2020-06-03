@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace EmailValidation\Validations;
 
 use EmailValidation\EmailAddress;
-use EmailValidation\EmailDataProvider;
 use EmailValidation\EmailDataProviderInterface;
 
 abstract class Validator
 {
     private ?EmailAddress $emailAddress;
 
-    private ?EmailDataProvider $emailDataProvider;
+    private ?EmailDataProviderInterface $emailDataProvider;
 
     public function __construct(EmailAddress $emailAddress = null, EmailDataProviderInterface $emailDataProvider = null)
     {
