@@ -35,10 +35,10 @@ class EmailAddress
         return (explode('@', $this->emailAddress))[$partNumber];
     }
 
-    public function getHostPart(): ?string
+    public function getHostPart(bool $returnFqdn = false): ?string
     {
         if ($this->isValidEmailAddressFormat()) {
-            return $this->getEmailPart(self::EMAIL_HOST_PART);
+            return $this->getEmailPart(self::EMAIL_HOST_PART) . ($returnFqdn ? '.' : '');
         }
 
         return null;

@@ -16,7 +16,12 @@ class MxRecordsValidatorTest extends TestCase
 
     public function testMxRecordIsChecked(): void
     {
-        $this->mxValidator->shouldReceive('checkDns')->with('dave@gmail.com', 'MX');
+        foreach (['MX', 'AAAA', 'NS', 'A'] as $dns) {
+            $this->mxValidator
+                ->shouldReceive('checkDns')
+                ->with('gmail.com.', $dns);
+        }
+
         $this->mxValidator->getResultResponse();
     }
 
@@ -26,6 +31,11 @@ class MxRecordsValidatorTest extends TestCase
             new EmailAddress('dave@gmail.com'),
         ])
             ->shouldAllowMockingProtectedMethods()
-            ->makePartial();
+            ->shouldReceive('getResultResponse')
+            ->passthru()
+            ->getMock()
+            ->shouldReceive('getEmailAddress')
+            ->passthru()
+            ->getMock();
     }
 }
