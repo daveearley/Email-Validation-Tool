@@ -626,6 +626,7 @@ return [
     'emailx.net',
     'ematic.com',
     'embarqmail.com',
+    'eml.cc',
     'emumail.com',
     'end-war.com',
     'enel.net',
