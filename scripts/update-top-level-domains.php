@@ -13,7 +13,7 @@ $topLevelDomains = file_get_contents($topLevelDomainsLocation);
 
 if (!is_string($topLevelDomains)) { die('Failed to fetch domains'); }
 
-$topLevelDomains = explode(PHP_EOL, $topLevelDomains);
+$topLevelDomains = preg_split('/\r\n|\r|\n/', $topLevelDomains);
 array_shift($topLevelDomains);
 
 if (!is_array($topLevelDomains)) { die('Unable to parse domains'); }
