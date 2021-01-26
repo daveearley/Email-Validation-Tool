@@ -9,16 +9,26 @@ on:
 jobs:
   build:
 
+    strategy:
+      matrix:
+        php-version: ['7.4', '8.0']
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: "Install PHP with extensions"
+      uses: shivammathur/setup-php@v2
+      with:
+        coverage: "none"
+        php-version: ${{ matrix.php-version }}
 
     - name: Validate composer.json and composer.lock
       run: composer validate
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-      
+
     - name: Run test suite
       run: ./vendor/bin/phpunit
