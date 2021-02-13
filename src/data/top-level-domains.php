@@ -1348,6 +1348,7 @@ return [
     'xn--45br5cyl',
     'xn--45brj9c',
     'xn--45q11c',
+    'xn--4dbrk0ce',
     'xn--4gbrim',
     'xn--54b7fta0cc',
     'xn--55qw42g',
