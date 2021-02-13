@@ -14,8 +14,8 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "mockery/mockery": "dev-master",
-    "phpunit/phpunit": "^9.0"
+    "mockery/mockery": "^1.3",
+    "phpunit/phpunit": "^9.3"
   },
   "license": "MIT",
   "autoload": {
