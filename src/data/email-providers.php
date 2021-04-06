@@ -3726,5 +3726,82 @@ return [
     'zybermail.com',
     'zydecofan.com',
     'zzn.com',
-    'zzom.co.uk'
+    'zzom.co.uk',
+    
+    # Proton Mail
+    'protonmail.com',
+    'protonmail.ch',
+    'pm.me',
+
+    # BT (bt.co.uk)
+    'btinternet.com',
+    'btopenworld.com',
+
+    # Outlook
+    'outlook.com',
+
+    # Zoho Mail
+    'zohomail.com',
+
+    # iCloud
+    'icloud.com',
+
+    # Fastmail
+    'fastmail.com',
+    'fastmail.cn',
+    'fastmail.com',
+    'fastmail.cn',
+    'fastmail.co.uk',
+    'fastmail.com.au',
+    'fastmail.de',
+    'fastmail.es',
+    'fastmail.fr',
+    'fastmail.im',
+    'fastmail.in',
+    'fastmail.jp',
+    'fastmail.mx',
+    'fastmail.net',
+    'fastmail.nl',
+    'fastmail.org',
+    'fastmail.se',
+    'fastmail.to',
+    'fastmail.tw',
+    'fastmail.uk',
+    'fastmail.us',
+    '123mail.org',
+    'eml.cc',
+    'mm.st',
+    'myfastmail.com',
+    'sent.as',
+    'sent.at',
+    'speedymail.org',
+    '150mail.com',
+    '16mail.com',
+    '2-mail.com',
+    '50mail.com',
+    'elitemail.org',
+    'emailengine.org',
+    'emailplus.org',
+    'f-m.fm',
+    'fast-email.com',
+    'fast-mail.org',
+    'fastest.cc',
+    'fea.st',
+    'h-mail.us',
+    'imap-mail.com',
+    'imap.cc',
+    'imapmail.org',
+    'inoutbox.com',
+    'internet-e-mail.com',
+    'internet-mail.org',
+    'letterboxes.org',
+    'mailingaddress.org',
+    'mailservice.ms',
+    'mailworks.org',
+    'mymacmail.com',
+    'reallyfast.info',
+    'ssl-mail.com',
+    'swift-mail.com',
+    'theinternetemail.com',
+    'your-mail.com'
 ];
