@@ -15,7 +15,7 @@ class EmailHostValidator extends Validator implements ValidatorInterface
     {
         $hostName = $this->getEmailAddress()->getHostPart();
         if ($hostName) {
-            return ($this->getHostByName($hostName) !== $hostName);
+            return ($this->getHostByName($hostName) !== $hostName) || ($this->getHostByName('www.' . $hostName) !== $hostName);
         }
 
         return false; // @codeCoverageIgnore
